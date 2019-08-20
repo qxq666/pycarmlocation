@@ -205,8 +205,26 @@ class 成绩单():
 
     @classmethod
     def 考试结果(cls):
-
-
+        判断=成绩单.计算是否及格()
+        if 判断=='及格':
+            print (cls.学生姓名+'同学考试通过啦！')
+        else:
+            print(cls.学生姓名+'同学需要补考')
 成绩单.录入成绩单()
 成绩单.考试结果()
-1111
+
+
+class calendar:
+    # 日程表的日期
+    date = '2020-08-08'
+    # 事件清单，以字典形式给出，键为事件，值是安排的时间
+    things = {'给父母买礼物':'9:00', '学习':'10:00', '和朋友聚会':'18:30'}
+    @classmethod
+    def thing_done(cls, thing):
+        del cls.things[thing]   #删除字典中的已完成的thing
+    @classmethod
+    def add_thing(cls, thing, time):
+        cls.things[thing] = time       #给字典添加变量，thing为键，time为值
+calendar.thing_done('给父母买礼物')    #给父母买礼物已完成，删除
+calendar.add_thing('写日记', '20:00')   #添加新事项
+print(calendar.things)    #将更新的类内的属性things打印
